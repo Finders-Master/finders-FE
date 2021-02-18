@@ -61,10 +61,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[fullhash].css',
       chunkFilename: 'css/[id].[fullhash].css',
-      attributes: {
-        rel: 'preload',
-        as: 'style',
-      },
     }),
     new HtmlWebpackPlugin({
       template: join(__dirname, 'public', 'index.html'),
