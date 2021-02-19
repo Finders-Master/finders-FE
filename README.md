@@ -1,5 +1,7 @@
 # Finder Web App, the mission of Finder is helps missing persons by health conditions
 
+<center><img alt="Finders logo" src="./src/assets/finders-logo.png"></img></center>
+
 ## Start with 👨‍🚀
 
 Clone the repository
