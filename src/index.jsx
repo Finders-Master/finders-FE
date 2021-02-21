@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import { App } from './App';
 
 import './styles/index.scss';
 
-ReactDom.render(<h1>Finders 🤖🤖</h1>, document.getElementById('root'));
+ReactDom.render(
+    <App/>, 
+document.getElementById('root'));
