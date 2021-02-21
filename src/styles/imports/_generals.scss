@@ -1,0 +1,10 @@
+//styles to general use
+
+.separator {
+  &__vertical {
+    width: 10px;
+    border-right: 2px solid $white;
+    height: 40px;
+    margin-right: 10px;
+  }
+}

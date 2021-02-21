@@ -1,0 +1,106 @@
+.loginform {
+  width: 90%;
+  max-width: 600px;
+  height: auto;
+  background-color: $primary-color;
+  padding: 30px;
+  border-radius: 20px;
+  @include flex(center, center, column);
+
+  &__submit {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: $secondary-color;
+    color: $primary-color;
+    border: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 60%;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.1s;
+    &:active {
+      transform: scale(0.9);
+      background-color: $white;
+    }
+  }
+  &__buttons {
+    transition: 1s;
+    &__active {
+      button {
+        color: $secondary-color !important;
+        border-bottom: 3px solid $secondary-color !important;
+      }
+    }
+    width: 100%;
+    @include flex;
+    button {
+      color: $white;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      padding: 10px;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+
+  &__inputs {
+    width: 100%;
+    @include flex(center, center, column);
+    input {
+      margin: 20px 0 20px 0;
+      width: 90%;
+      font-size: 1rem;
+      background: none;
+      border: none;
+      border-bottom: 2px solid $white;
+      color: $white;
+      outline: none;
+      padding: 0.5em;
+    }
+    ::-webkit-input-placeholder {
+      color: $white;
+    }
+  }
+  &__social {
+    color: $white;
+    width: 100%;
+    @include flex(center, center, column);
+    h3 {
+      font-size: 1em;
+    }
+    &__buttons {
+      padding-top: 20px;
+      @include flex;
+      @media screen and (max-width: $mobile) {
+        @include flex(center, center, column);
+      }
+      width: 100%;
+      button {
+        width: 80%;
+        background: $white;
+        height: 60px;
+        border: none;
+        margin: 10px;
+        color: dimgray;
+        font-size: 1em;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        outline: none;
+        @include flex;
+        transition: 0.1s;
+        &:active {
+          transform: scale(0.9);
+          background-color: $white;
+        }
+        span {
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}

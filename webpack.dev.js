@@ -38,7 +38,6 @@ module.exports = {
       },
     ],
   },
-
   plugins: [
     new HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
@@ -53,6 +52,7 @@ module.exports = {
     port: 8080,
     hot: true,
     open: true,
+    historyApiFallback: true,
     watchOptions: {
       poll: 420,
     },
