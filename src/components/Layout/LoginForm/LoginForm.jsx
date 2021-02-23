@@ -29,11 +29,11 @@ export const LoginForm = () => {
                 </NavLink>
             </div>
             <div className="loginform__inputs">
-                <input type="password"
-                placeholder="contraseña"
-                />
                 <input type="email"
                 placeholder="correo"
+                />
+                <input type="password"
+                placeholder="contraseña"
                 />
             </div>
             <input type="submit" className="loginform__submit"/>
