@@ -4,8 +4,8 @@
   "description": "Frontend of Finders project",
   "main": "src/index.jsx",
   "scripts": {
-    "start": "webpack serve --color --progress --hot --config ./webpack.dev.js",
-    "build": "webpack --progress --config ./webpack.config.dll.js && webpack --progress --config ./webpack.config.production.js",
+    "dev": "webpack serve --color --progress --hot --config ./webpack.dev.js",
+    "start": "webpack --progress --config ./webpack.config.dll.js && webpack --progress --config ./webpack.config.production.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
