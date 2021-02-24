@@ -4,7 +4,7 @@
   "description": "Frontend of Finders project",
   "main": "src/index.jsx",
   "scripts": {
-    "dev": "webpack serve --color --progress --hot --config ./webpack.dev.js",
+    "start": "webpack serve --color --progress --hot --config ./webpack.dev.js",
     "build": "webpack --progress --config ./webpack.config.dll.js && webpack --progress --config ./webpack.config.production.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
