@@ -4,19 +4,24 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import AngelInfo from '../components/angel-info/Index';
 import { Layout } from '../components/Layout/Layout';
 import { Home } from '../containers/Home/Home';
+import { NotFound } from '../containers/NotFound/NotFound';
 
 export const DashBoard = () => {
     return (
-        <div>
+        <>
         <Layout>
+            <div>
             <Switch>
-                <div>
                     <Route exact path="/" component={Home}/>
-                </div>
+                    <Route exact path='/angel' component={AngelInfo} />
+                    <Route exact path = '/error-404' component={NotFound}/>
+                    <Redirect to='/notfound' />
             </Switch>
+            </div>
         </Layout>
-        </div>
+        </>
     )
 }
