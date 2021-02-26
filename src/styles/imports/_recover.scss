@@ -1,0 +1,64 @@
+.recover-page {
+  width: 90vw;
+  margin: 10vh auto 0 auto;
+  display: grid;
+  justify-items: center;
+}
+
+.recover-page__title {
+  text-align: center;
+  margin-top: 15vh;
+}
+
+.form-reset-password {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+}
+
+.component-input {
+  display: grid;
+  text-align: left;
+  margin-top: 4vh;
+  width: 100%;
+}
+
+.component-input__input {
+  color: black;
+  height: 30px;
+  margin-top: 8%;
+  margin: 20px 0 20px 0;
+  width: 100%;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid $white;
+  outline: none;
+  padding: 0.5em;
+}
+
+.toggle-component {
+  width: 100%;
+}
+
+.recover-message {
+  font-size: 1rem;
+  margin-top: 8vh;
+  margin-bottom: 4vh;
+  text-align: center;
+}
+
+@media screen and (min-width: $tablet) {
+  .recover-page {
+    justify-content: center;
+  }
+  .recover-page__title {
+    font-size: 3rem;
+  }
+  .component-input__input {
+    width: 100%;
+  }
+  .component-input__input > p {
+    font-size: 2rem;
+  }
+}
