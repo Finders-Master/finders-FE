@@ -18,7 +18,7 @@ function Input({
           required
           name={label}
           placeholder={placeholder}
-          className={('component-input__input', disabled && 'disbaled-input')}
+          className={disabled ? 'disabled-input' : 'component-input__input'}
           id={inputId}
           type={type}
         />
