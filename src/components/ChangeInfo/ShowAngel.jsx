@@ -11,12 +11,12 @@ function ShowAngel() {
 
   return (
     <>
-      <section className="loginform">
+      <section className="loginform update-angel">
         <AngelInfo />
 
         {changeInfoOfAngel && <ChangeAngelInfo />}
 
-        {/* If user are changing angel info, hidde button */}
+        {/* If user are changing angel info, hidde button. Redirect coming soon */}
         {!changeInfoOfAngel && (
           <button
             className="loginform__submit button-change-info"

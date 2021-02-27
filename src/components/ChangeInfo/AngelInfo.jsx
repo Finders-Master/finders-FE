@@ -2,18 +2,9 @@ import React from 'react';
 
 function AngelInfo() {
   return (
-    <div
-      style={{
-        display: 'grid',
-        alignContent: 'space-around',
-        height: '100%',
-        marginTop: '0',
-      }}
-      className="login__container"
-    >
+    <div className="angel-info login__container">
       <img
-        style={{ marginBottom: '0' }}
-        className="angel-info__photo"
+        className="angel-info__photo update-angel-photo"
         src="https://img.favpng.com/21/21/3/stock-photography-thought-man-looking-up-png-favpng-e1M7u3YcarHcG7M7fgjeWYLdD.jpg"
         alt="Person"
       />
