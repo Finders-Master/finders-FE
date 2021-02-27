@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Profile() {
+function GuardianProfile() {
   return (
     <>
       <div className="profile-component">
@@ -15,4 +15,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default GuardianProfile;

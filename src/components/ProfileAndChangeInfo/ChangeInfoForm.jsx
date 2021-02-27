@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import FormChangeInfo from './FormChangeInfo';
-import ShowInfo from './ShowInfo';
+import FormChangeGuardianInfo from './FormChangeGuardianInfo';
+import ShowGuardianInfo from './ShowGuardianInfo';
 
-function ChangeInfoForm() {
+function ChangeGuardianForm() {
   const [changeInfo, setChangeInfo] = useState(false);
 
   function toggleChangeInfo(event) {
@@ -18,7 +18,7 @@ function ChangeInfoForm() {
     <>
       {/* Show form or show info */}
 
-      {changeInfo ? <FormChangeInfo /> : <ShowInfo />}
+      {changeInfo ? <FormChangeGuardianInfo /> : <ShowGuardianInfo />}
 
       {/* Enable change info button */}
       {changeInfo ? (
@@ -53,4 +53,4 @@ function ChangeInfoForm() {
   );
 }
 
-export default ChangeInfoForm;
+export default ChangeGuardianForm;

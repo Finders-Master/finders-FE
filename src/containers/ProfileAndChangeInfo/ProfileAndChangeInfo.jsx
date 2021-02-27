@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Profile from '../../components/ChangeInfo/Profile';
-import ChangeInfoForm from '../../components/ChangeInfo/ChangeInfoForm';
-import ShowAngel from '../../components/ChangeInfo/ShowAngel';
-import AddAngel from '../../components/ChangeInfo/AddAngel';
+import GuardianProfile from '../../components/ProfileAndChangeInfo/GuardianProfile';
+import ChangeGuardianForm from '../../components/ProfileAndChangeInfo/ChangeInfoForm';
+import ShowAngel from '../../components/ProfileAndChangeInfo/ShowAngel';
+import AddAngel from '../../components/ProfileAndChangeInfo/AddAngel';
 
 function ChangeInfo() {
   const [createNewAngel, setCreateNewAngel] = useState(false);
@@ -14,8 +14,8 @@ function ChangeInfo() {
   return (
     <>
       <main className="change-info-page">
-        <Profile />
-        <ChangeInfoForm />
+        <GuardianProfile />
+        <ChangeGuardianForm />
         <h2>Angeles</h2>
         {!createNewAngel && (
           <button

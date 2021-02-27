@@ -1,8 +1,6 @@
 import React from 'react';
 
-//  'disabled-input'
-
-function ShowInfo() {
+function ShowGuardianInfo() {
   return (
     <>
       <div>
@@ -23,4 +21,4 @@ function ShowInfo() {
   );
 }
 
-export default ShowInfo;
+export default ShowGuardianInfo;
