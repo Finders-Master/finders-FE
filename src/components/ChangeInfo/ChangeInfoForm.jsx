@@ -42,7 +42,7 @@ function ChangeInfoForm() {
       {/* Button to cancel change info */}
       {changeInfo ? (
         <button
-          className="loginform__submit button-change-info"
+          className="loginform__submit button-change-info cancel-button"
           onClick={toggleChangeInfo}
           type="submit"
         >

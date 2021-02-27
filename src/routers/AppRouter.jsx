@@ -7,6 +7,7 @@ import { DashBoard } from './DashBoard';
 import AngelInfo from '../containers/angel/Angel';
 import Notifications from '../containers/Notifications/Notifications';
 import RestartPassword from '../containers/Restart/Restart';
+import ChangeInfo from '../containers/ChangeInfo/ChangeInfo';
 
 export const AppRouter = () => {
   return (
@@ -14,6 +15,7 @@ export const AppRouter = () => {
       <Switch>
         <Route exact path="/alerta" component={Notifications} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/profile" component={ChangeInfo} />
         <Route exact path="/registro" component={Register} />
         <Route path="/angel" component={AngelInfo} />
         <Route path="/restart" component={RestartPassword} />

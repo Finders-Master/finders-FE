@@ -1,0 +1,49 @@
+.info-form-container {
+  border: 2px solid black;
+}
+.disabled-input {
+  display: grid;
+  margin: 20px 0 20px 0;
+  width: 90%;
+  font-size: 1rem;
+  background: #c9c9c9;
+  height: 80px;
+  color: $white;
+  padding: 0.5em;
+  color: black;
+  align-content: center;
+}
+
+.component-input > p {
+  font-size: 1.5rem;
+}
+
+.component-input__input--border {
+  border: 2px solid black;
+  height: 4rem;
+}
+
+.button-change-info {
+  width: 100%;
+}
+
+//  cancel button
+.cancel-button {
+  background-color: $alert-color;
+  color: $white;
+}
+
+// Angel
+
+.change-angel-info {
+  color: $white;
+  border: 1px solid white;
+}
+
+.change-angel-label {
+  color: $white;
+}
+
+option {
+  color: black;
+}
