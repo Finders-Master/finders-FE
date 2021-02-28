@@ -1,12 +1,11 @@
 import React from 'react';
-import RegisterForm from '../../components/Layout/LoginForm/RegisterForm';
+import RegisterForm from '../../components/LoginForm/RegisterForm';
 
-export const Register = () => {
-  return (
-    <section className='login'>
-      <div className='login__container'>
-        <RegisterForm />
-      </div>
-    </section>
-  );
-};
+const Register = () => (
+  <section className="login">
+    <div className="login__container">
+      <RegisterForm />
+    </div>
+  </section>
+);
+export default Register;

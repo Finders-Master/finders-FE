@@ -3,7 +3,7 @@ import AngelInfo from '../../components/angel-info/Index';
 
 export default function Angel() {
   return (
-    <div className='info-page'>
+    <div className="info-page">
       <AngelInfo />
     </div>
   );

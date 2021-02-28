@@ -1,6 +1,7 @@
 const { join } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { HotModuleReplacementPlugin } = require('webpack');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: 'development',
@@ -23,19 +24,22 @@ module.exports = {
         },
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(s*)css$/,
         use: [
-          'style-loader',
+          { loader: MiniCssExtractPlugin.loader },
           'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              // Prefer `dart-sass`
-              implementation: require('sass'),
-            },
-          },
+          'sass-loader',
         ],
       },
+      {
+  test: /\.(png|jpe?g|gif)$/i,
+  use: [
+    {
+      loader: 'file-loader',
+      options: { name: 'assets/[hash].[ext]' },
+    },
+  ],
+},
     ],
   },
   plugins: [
@@ -43,6 +47,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: join(__dirname, 'public', 'index.html'),
       favicon: join(__dirname, 'src', 'assets', 'finders-logo.png'),
+    }),
+     new MiniCssExtractPlugin({
+      filename: "assets/[name].css",
     }),
   ],
 

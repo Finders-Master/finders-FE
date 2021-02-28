@@ -1,0 +1,44 @@
+.searchbar {
+  width: 100%;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  height: 75px;
+  background: $primary-color;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: $tablet) {
+    top: 70px;
+  }
+  &__container {
+    background: $white;
+    padding: 5px;
+    @include flex;
+    width: 95%;
+    i {
+      font-size: 1.5em;
+      color: $primary-color;
+    }
+    input {
+      width: 100%;
+      padding: 5px;
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 18px;
+    }
+    button {
+      background: none;
+      color: $primary-color;
+      border: none;
+      font-size: 1.5em;
+      @include flex;
+    }
+  }
+  &__active {
+    display: flex;
+  }
+  &__inactive {
+    display: none;
+  }
+}
