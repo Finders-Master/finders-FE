@@ -2,8 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { GoogleLogo } from '../../../assets/svg/GoogleLogo';
 import { TwitterLogo } from '../../../assets/svg/TwitterLogo';
+//  Utils
+import {
+  validateInput,
+  compareInputs,
+  toggle,
+  handleInputs as manageInputsValues,
+  RegExpEmail,
+  RegExpPassword,
+} from '../../../utils/index';
 
-export default function RegisterForm() {
+function RegisterForm() {
   const [inputsValues, setInputsValues] = useState({
     name: '',
     password: '',
@@ -17,57 +26,41 @@ export default function RegisterForm() {
   });
   const [disableButton, setDisableButton] = useState(true);
 
-  //  Regexp to check password and email format
-  const RegExpEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-  const RegExpPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/gm;
-
-  function toggleDisableButton() {
-    const { email, password, passwordsAreSame } = inputsErrors;
-    if ((email && password, passwordsAreSame)) {
-      setDisableButton(false);
-    } else {
-      setDisableButton(true);
-    }
-  }
-
-  function validateInput(inputName, inputValue = '', rule) {
-    if (inputValue.length > 0) {
-      const inputFormatIsOk = rule.test(inputValue);
-      if (inputFormatIsOk) {
-        setInputsErrors({ ...inputsErrors, [inputName]: false });
-      }
-    }
-  }
-
-  function compareInputs(inputName, inputValue1, inputValue2) {
-    if (inputValue1.length > 0 && inputValue2.length > 0) {
-      if (inputValue1 === inputValue2) {
-        setInputsErrors({ ...inputsErrors, [inputName]: false });
-      }
-    }
-  }
-
   function validateAllInputs() {
-    // Validate inputs
-    validateInput('email', inputsValues.email, RegExpEmail);
-    validateInput('password', inputsValues.password, RegExpPassword);
+    validateInput(
+      'email',
+      inputsValues.email,
+      RegExpEmail,
+      setInputsErrors,
+      inputsErrors,
+    );
+    validateInput(
+      'password',
+      inputsValues.password,
+      RegExpPassword,
+      setInputsErrors,
+      inputsErrors,
+    );
+
     compareInputs(
       'passwordsAreSame',
       inputsValues.password,
       inputsValues.confirmPassword,
+      setInputsErrors,
+      inputsErrors,
     );
   }
 
   function handleInputs(event) {
-    setInputsValues({
-      ...inputsValues,
-      [event.target.name]: event.target.value,
-    });
-    toggleDisableButton();
+    manageInputsValues(event, inputsValues, setInputsValues);
+
+    // Toggle disable button
+    const { email, password, passwordsAreSame } = inputsErrors;
+    toggle(email && password && passwordsAreSame, setDisableButton);
   }
-  const handleSubmit = (event) => {
+  function handleSubmit(event) {
     event.preventDefault();
-  };
+  }
 
   useEffect(() => {
     validateAllInputs();
@@ -181,3 +174,5 @@ export default function RegisterForm() {
     </form>
   );
 }
+
+export default RegisterForm;
