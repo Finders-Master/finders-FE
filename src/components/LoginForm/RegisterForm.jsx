@@ -10,6 +10,7 @@ import {
   handleInputs as manageInputsValues,
   RegExpEmail,
   RegExpPassword,
+  registerGuardian,
 } from '../../utils/index';
 
 function RegisterForm() {
@@ -26,6 +27,8 @@ function RegisterForm() {
     passwordsAreSame: true,
   });
   const [disableButton, setDisableButton] = useState(true);
+
+  const [requestMessage, setRequestMessage] = useState({});
 
   // Logic
 
@@ -57,8 +60,45 @@ function RegisterForm() {
   function handleInputs(event) {
     manageInputsValues(event, inputsValues, setInputsValues);
   }
+
   function handleSubmit(event) {
     event.preventDefault();
+    const { email, name, password } = inputsValues;
+    registerGuardian(name, email, password).then((response) => {
+      setRequestMessage(response);
+    });
+  }
+
+  function PrintRequestMessage() {
+    const { statusCode, message } = requestMessage;
+    let requestClassName;
+    let fullMessage;
+    switch (statusCode) {
+      case statusCode >= 100 <= 199:
+        requestClassName = 'request-response-info';
+        fullMessage = `Info: ${message}`;
+        break;
+      case statusCode >= 200 <= 299:
+        requestClassName = 'request-response-succcess';
+        fullMessage = `Éxito: ${message}`;
+        break;
+      case statusCode >= 300 <= 399:
+        requestClassName = 'request-response-info';
+        fullMessage = `Info: ${message}`;
+        break;
+      default:
+        requestClassName = 'request-response-error';
+        fullMessage = `Error: ${message}`;
+        break;
+    }
+
+    return (
+      <>
+        <h1 className={`${requestClassName} request-response`}>
+          {fullMessage}
+        </h1>
+      </>
+    );
   }
 
   //  Do inputs validations onChange
@@ -136,8 +176,8 @@ function RegisterForm() {
         {inputsValues.password.length > 0
           ? inputsErrors.password === true && (
               <h3 className="form-alert">
-                La contaseña debe de incluir mayúsculas, minúsculas, números y
-                símbolos
+                La contaseña debe de incluir mayúsculas, minúsculas, números,
+                símbolos especiales tener minimo 6 caracteres.
               </h3>
             )
           : null}
@@ -184,6 +224,11 @@ function RegisterForm() {
         type="submit"
         className="loginform__submit"
       />
+
+      {/* Request message */}
+
+      {Object.keys(requestMessage).length > 0 && <PrintRequestMessage />}
+
       <div className="loginform__social">
         <h3>O entra con tus redes sociales</h3>
         <div className="loginform__social__buttons">

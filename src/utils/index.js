@@ -4,6 +4,7 @@ import toggle from './toggle';
 import handleInputs from './handleInputs';
 import { RegExpEmail, RegExpPassword } from './regExp';
 import compareLength from './compareLength';
+import registerGuardian from './registerGuardian';
 
 export {
   validateInput,
@@ -13,4 +14,5 @@ export {
   RegExpPassword,
   RegExpEmail,
   compareLength,
+  registerGuardian,
 };

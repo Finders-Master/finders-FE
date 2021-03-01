@@ -109,3 +109,18 @@
   color: $form-alert;
   text-align: center;
 }
+
+.request-response {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.request-response-info {
+  color: $form-alert;
+}
+.request-response-error {
+  color: $form-alert;
+}
+.request-response-succcess {
+  color: $success-color;
+}
