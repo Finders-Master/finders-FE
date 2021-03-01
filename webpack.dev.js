@@ -1,7 +1,7 @@
 const { join } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { HotModuleReplacementPlugin } = require('webpack');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -32,14 +32,14 @@ module.exports = {
         ],
       },
       {
-  test: /\.(png|jpe?g|gif)$/i,
-  use: [
-    {
-      loader: 'file-loader',
-      options: { name: 'assets/[hash].[ext]' },
-    },
-  ],
-},
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: { name: 'assets/[hash].[ext]' },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -48,8 +48,8 @@ module.exports = {
       template: join(__dirname, 'public', 'index.html'),
       favicon: join(__dirname, 'src', 'assets', 'finders-logo.png'),
     }),
-     new MiniCssExtractPlugin({
-      filename: "assets/[name].css",
+    new MiniCssExtractPlugin({
+      filename: 'assets/[name].css',
     }),
   ],
 

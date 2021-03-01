@@ -2,11 +2,17 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import GoogleLogo from '../../assets/svg/GoogleLogo';
 import TwitterLogo from '../../assets/svg/TwitterLogo';
+import { useForm } from '../../Hooks/useForm';
+
 
 const LoginForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
+
+  const [{}, handleInputChange, reset] = useForm({
+
+  })
 
   return (
     <form className="loginform" onSubmit={handleSubmit}>
@@ -30,8 +36,14 @@ const LoginForm = () => {
         </NavLink>
       </div>
       <div className="loginform__inputs">
-        <input type="email" placeholder="Correo" />
-        <input type="password" placeholder="Contraseña" />
+        <input 
+        name="correo"
+        type="email" 
+        placeholder="Correo" 
+        />
+        <input 
+        type="password" 
+        placeholder="Contraseña" />
       </div>
       <button type="submit" className="loginform__submit">
         Iniciar sesión

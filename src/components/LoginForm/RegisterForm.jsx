@@ -3,8 +3,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import GoogleLogo from '../../assets/svg/GoogleLogo';
 import TwitterLogo from '../../assets/svg/TwitterLogo';
+import { useForm } from '../../Hooks/useForm';
 
 const RegisterForm = () => {
+  
+  const [{name, }, handleInputChange, reset ] = useForm()
+  
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -36,10 +40,14 @@ const RegisterForm = () => {
 
       <div className="loginform__inputs">
         <input
+          name="name"
+          value={name}
           type="text"
           placeholder="nombre completo"
+          onChange={handleInputChange}
         />
         <input
+          
           type="password"
           placeholder="contraseña"
         />
