@@ -128,7 +128,9 @@ function RegisterForm() {
 
         {inputsValues.confirmPassword.length > 0
           ? inputsErrors.passwordsAreSame === true && (
-              <h3>Ambas contraseñas deben de coincidir</h3>
+              <h3 className="form-alert">
+                Ambas contraseñas deben de coincidir
+              </h3>
             )
           : null}
 
@@ -142,7 +144,9 @@ function RegisterForm() {
 
         {/* Check email format */}
         {inputsValues.email.length > 0
-          ? inputsErrors.email === true && <h3>Ingresa un email válido</h3>
+          ? inputsErrors.email === true && (
+              <h3 className="form-alert">Ingresa un email válido</h3>
+            )
           : null}
       </div>
 
