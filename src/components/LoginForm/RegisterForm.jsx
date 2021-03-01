@@ -30,32 +30,7 @@ function RegisterForm() {
 
   const [requestMessage, setRequestMessage] = useState({});
 
-  // Logic
-
-  function validateAllInputs() {
-    validateInput(
-      'email',
-      inputsValues.email,
-      RegExpEmail,
-      setInputsErrors,
-      inputsErrors,
-    );
-    validateInput(
-      'password',
-      inputsValues.password,
-      RegExpPassword,
-      setInputsErrors,
-      inputsErrors,
-    );
-
-    compareInputs(
-      'passwordsAreSame',
-      inputsValues.password,
-      inputsValues.confirmPassword,
-      setInputsErrors,
-      inputsErrors,
-    );
-  }
+  //  Logic
 
   function handleInputs(event) {
     manageInputsValues(event, inputsValues, setInputsValues);
@@ -101,11 +76,37 @@ function RegisterForm() {
     );
   }
 
-  //  Do inputs validations onChange
+  //  Inputs validations onChange
 
   useEffect(() => {
-    validateAllInputs();
-  }, [inputsValues]);
+    validateInput(
+      'email',
+      inputsValues.email,
+      RegExpEmail,
+      setInputsErrors,
+      inputsErrors,
+    );
+  }, [inputsValues.email]);
+
+  useEffect(() => {
+    validateInput(
+      'password',
+      inputsValues.password,
+      RegExpPassword,
+      setInputsErrors,
+      inputsErrors,
+    );
+  }, [inputsValues.password]);
+
+  useEffect(() => {
+    compareInputs(
+      'passwordsAreSame',
+      inputsValues.password,
+      inputsValues.confirmPassword,
+      setInputsErrors,
+      inputsErrors,
+    );
+  }, [inputsValues.password, inputsValues.confirmPassword]);
 
   useEffect(() => {
     //  Toggle disable button
