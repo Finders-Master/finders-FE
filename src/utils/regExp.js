@@ -1,5 +1,5 @@
 //  Regexp to check password and email format
-const RegExpEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-const RegExpPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/gm;
+const RegExpEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const RegExpPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,30}$/;
 
 export { RegExpEmail, RegExpPassword };

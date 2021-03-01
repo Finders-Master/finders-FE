@@ -6,13 +6,14 @@ import TwitterLogo from '../../assets/svg/TwitterLogo';
 import {
   validateInput,
   compareInputs,
-  toggle,
+  compareLength,
   handleInputs as manageInputsValues,
   RegExpEmail,
   RegExpPassword,
 } from '../../utils/index';
 
 function RegisterForm() {
+  // States
   const [inputsValues, setInputsValues] = useState({
     name: '',
     password: '',
@@ -25,6 +26,8 @@ function RegisterForm() {
     passwordsAreSame: true,
   });
   const [disableButton, setDisableButton] = useState(true);
+
+  // Logic
 
   function validateAllInputs() {
     validateInput(
@@ -53,18 +56,41 @@ function RegisterForm() {
 
   function handleInputs(event) {
     manageInputsValues(event, inputsValues, setInputsValues);
-
-    // Toggle disable button
-    const { email, password, passwordsAreSame } = inputsErrors;
-    toggle(email && password && passwordsAreSame, setDisableButton);
   }
   function handleSubmit(event) {
     event.preventDefault();
   }
 
+  //  Do inputs validations onChange
+
   useEffect(() => {
     validateAllInputs();
   }, [inputsValues]);
+
+  useEffect(() => {
+    //  Toggle disable button
+
+    const { email, password, passwordsAreSame } = inputsErrors;
+    const emailLength = compareLength(inputsValues.email, '>', 0);
+    const passwordLength = compareLength(inputsValues.password, '>', 0);
+    const confirmPasswordLength = compareLength(
+      inputsValues.confirmPassword,
+      '>',
+      0,
+    );
+    const nameLength = compareLength(inputsValues.name, '>', 6);
+    //  Chack lengths
+    if (emailLength && passwordLength && confirmPasswordLength && nameLength) {
+      //  Check errors
+      if (email === false && password === false && passwordsAreSame === false) {
+        setDisableButton(false);
+      } else {
+        setDisableButton(true);
+      }
+    } else {
+      setDisableButton(true);
+    }
+  }, [inputsErrors]);
 
   return (
     <form className="loginform" onSubmit={handleSubmit}>
