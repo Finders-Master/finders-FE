@@ -109,7 +109,7 @@ function RegisterForm() {
         {/* Password message */}
         {inputsValues.password.length > 0
           ? inputsErrors.password === true && (
-              <h3>
+              <h3 className="form-alert">
                 La contaseña debe de incluir mayúsculas, minúsculas, números y
                 símbolos
               </h3>
