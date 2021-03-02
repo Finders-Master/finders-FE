@@ -5,6 +5,7 @@ import handleInputs from './handleInputs';
 import { RegExpEmail, RegExpPassword } from './regExp';
 import compareLength from './compareLength';
 import registerGuardian from './registerGuardian';
+import login from './login';
 
 export {
   validateInput,
@@ -15,4 +16,5 @@ export {
   RegExpEmail,
   compareLength,
   registerGuardian,
+  login,
 };

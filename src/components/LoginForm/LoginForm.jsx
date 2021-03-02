@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import GoogleLogo from '../../assets/svg/GoogleLogo';
 import TwitterLogo from '../../assets/svg/TwitterLogo';
-import { useForm } from '../../Hooks/useForm';
-
+// import { useForm } from '../../Hooks/useForm';
+import { login } from '../../utils/index';
 
 const LoginForm = () => {
-  const handleSubmit = (event) => {
+  const EmailInput = useRef(null);
+  const PasswordInput = useRef(null);
+
+  //  Logic
+
+  function handleSubmit(event) {
     event.preventDefault();
-  };
-
-  const [{}, handleInputChange, reset] = useForm({
-
-  })
+    login(EmailInput.current.value, PasswordInput.current.value)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((data) => {
+        console.log(data);
+      });
+  }
 
   return (
     <form className="loginform" onSubmit={handleSubmit}>
@@ -35,17 +44,28 @@ const LoginForm = () => {
           <button type="submit">Registro</button>
         </NavLink>
       </div>
+
+      {/* Inputs */}
+
       <div className="loginform__inputs">
-        <input 
-        name="correo"
-        type="email" 
-        placeholder="Correo" 
+        <input
+          ref={EmailInput}
+          name="email"
+          type="email"
+          placeholder="Correo"
         />
-        <input 
-        type="password" 
-        placeholder="Contraseña" />
+        <input
+          ref={PasswordInput}
+          name="password"
+          type="password"
+          placeholder="Contraseña"
+        />
       </div>
-      <button type="submit" className="loginform__submit">
+      <button
+        onClick={handleSubmit}
+        type="submit"
+        className="loginform__submit"
+      >
         Iniciar sesión
       </button>
       <div className="loginform__social">
