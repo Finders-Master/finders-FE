@@ -28,7 +28,9 @@ function RegisterForm() {
   });
   const [disableButton, setDisableButton] = useState(true);
 
-  const [requestMessage, setRequestMessage] = useState({});
+  const [requestMessage, setRequestMessage] = useState('');
+
+  const [requestClassName, setRequestClassName] = useState('');
 
   //  Logic
 
@@ -40,38 +42,42 @@ function RegisterForm() {
     event.preventDefault();
     const { email, name, password } = inputsValues;
     registerGuardian(name, email, password).then((response) => {
-      setRequestMessage(response);
+      const { statusCode, message } = response;
+      let numberToString;
+      if (typeof statusCode === typeof 3) {
+        numberToString = statusCode.toString();
+      } else {
+        numberToString = 'No status code';
+      }
+
+      switch (numberToString[0]) {
+        case '1':
+          setRequestClassName('request-response-info');
+          setRequestMessage(`Info: ${message}`);
+          break;
+        case '3':
+          setRequestClassName('request-response-info');
+          setRequestMessage(`Info: ${message}`);
+          break;
+        case '4':
+          setRequestClassName('request-response-error');
+          setRequestMessage(`Error: ${message}`);
+          break;
+        case '5':
+          setRequestClassName('request-response-error');
+          setRequestMessage(`Error: ${message}`);
+          break;
+        default:
+          setRequestClassName('request-response-succcess');
+          setRequestMessage('Éxito: Usuario registrado');
+      }
     });
   }
 
-  function PrintRequestMessage() {
-    const { statusCode, message } = requestMessage;
-    let requestClassName;
-    let fullMessage;
-    switch (statusCode) {
-      case statusCode >= 100 <= 199:
-        requestClassName = 'request-response-info';
-        fullMessage = `Info: ${message}`;
-        break;
-      case statusCode >= 200 <= 299:
-        requestClassName = 'request-response-succcess';
-        fullMessage = `Éxito: ${message}`;
-        break;
-      case statusCode >= 300 <= 399:
-        requestClassName = 'request-response-info';
-        fullMessage = `Info: ${message}`;
-        break;
-      default:
-        requestClassName = 'request-response-error';
-        fullMessage = `Error: ${message}`;
-        break;
-    }
-
+  function PrintRequestMessage({ requestClassName, message }) {
     return (
       <>
-        <h1 className={`${requestClassName} request-response`}>
-          {fullMessage}
-        </h1>
+        <h1 className={`${requestClassName} request-response`}>{message}</h1>
       </>
     );
   }
@@ -228,7 +234,12 @@ function RegisterForm() {
 
       {/* Request message */}
 
-      {Object.keys(requestMessage).length > 0 && <PrintRequestMessage />}
+      {requestMessage.length > 0 && (
+        <PrintRequestMessage
+          requestClassName={requestClassName}
+          message={requestMessage}
+        />
+      )}
 
       <div className="loginform__social">
         <h3>O entra con tus redes sociales</h3>
