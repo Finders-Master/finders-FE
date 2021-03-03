@@ -1,10 +1,10 @@
 //  https://thefinders.herokuapp.com/user/login
-export default function login(email, password) {
+export default function login(username, password) {
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');
 
   const body = {
-    email,
+    username,
     password,
   };
 
