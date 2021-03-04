@@ -244,18 +244,23 @@ function RegisterForm() {
       <div className="loginform__social">
         <h3>O entra con tus redes sociales</h3>
         <div className="loginform__social__buttons">
-          <button type="submit">
-            <span>
-              <GoogleLogo />
-            </span>
-            Google
-          </button>
-          <button type="submit">
-            <span>
-              <TwitterLogo />
-            </span>
-            Twitter
-          </button>
+          <a href="/auth/google-oauth">
+            <button type="button">
+              <span>
+                <GoogleLogo />
+              </span>
+              Google
+            </button>
+          </a>
+
+          <a href="/auth/twitter">
+            <button type="button">
+              <span>
+                <TwitterLogo />
+              </span>
+              Twitter
+            </button>
+          </a>
         </div>
       </div>
     </form>
