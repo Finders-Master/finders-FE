@@ -1,13 +1,16 @@
 const { join } = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { HotModuleReplacementPlugin } = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: join(__dirname, 'src', 'index.jsx'),
+  entry: [
+    './src/frontend/index.jsx',
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true',
+  ],
   output: {
-    filename: 'index.js',
+    filename: 'assets/app.js',
+    publicPath: '/',
   },
 
   resolve: {
@@ -36,7 +39,7 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: { name: 'assets/[hash].[ext]' },
+            options: { name: 'assets/[name].[ext]' },
           },
         ],
       },
@@ -44,12 +47,9 @@ module.exports = {
   },
   plugins: [
     new HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: join(__dirname, 'public', 'index.html'),
-      favicon: join(__dirname, 'src', 'assets', 'finders-logo.png'),
-    }),
+
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].css',
+      filename: 'assets/styles.css',
     }),
   ],
 
