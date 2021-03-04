@@ -53,6 +53,8 @@ module.exports = {
     }),
   ],
 
+  devtool: 'cheap-module-source-map',
+
   devServer: {
     contentBase: join(__dirname, 'src', 'index.jsx'),
     watchContentBase: true,
