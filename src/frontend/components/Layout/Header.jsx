@@ -6,10 +6,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineMenu, AiOutlineUser } from 'react-icons/ai';
 import { CgSearch } from 'react-icons/cg';
-import LogoFindMe from '../../../assets/svg/LogoFindMe';
-import Button from '../../Button/Button';
-import Modal from '../../Modal/Modal';
-import SearchBar from '../../SearchBar/SearchBar.jsx';
+import LogoFindMe from '../../assets/svg/LogoFindMe';
+import Button from '../Button/Button';
+import Modal from '../Modal/Modal';
+import SearchBar from '../SearchBar/SearchBar.jsx';
 
 const Header = () => {
   const [modal, setmodal] = useState(false);
@@ -18,19 +18,19 @@ const Header = () => {
     setmodal(!modal);
   };
   const handleSearch = () => {
-    setsearch(!search)
-  }
+    setsearch(!search);
+  };
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
   };
-  const handleInput = () => {
-
-  };
+  const handleInput = () => {};
   return (
     <>
       <header className="layout__header">
         <div className="layout__header__brand">
-          <button><AiOutlineMenu /></button>
+          <button>
+            <AiOutlineMenu />
+          </button>
           <figure>
             <Link to="/">
               <LogoFindMe />
@@ -63,11 +63,7 @@ const Header = () => {
             <AiOutlineUser />
           </button>
         </nav>
-        <Modal
-          modal={modal}
-          position="modaluser"
-          handleModal={ handleModal }
-        >
+        <Modal modal={modal} position="modaluser" handleModal={handleModal}>
           <Link to="/login">INICIAR SESIÓN</Link>
           <Button
             style="button primary"
@@ -77,8 +73,8 @@ const Header = () => {
           />
         </Modal>
         <SearchBar
-          search = {search}
-          handleSearch = {handleSearch}
+          search={search}
+          handleSearch={handleSearch}
           handleSubmit={handleSubmit}
           handleInput={handleInput}
         />
@@ -86,4 +82,5 @@ const Header = () => {
     </>
   );
 };
+
 export default Header;

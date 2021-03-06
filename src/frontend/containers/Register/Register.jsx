@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterForm from '../../components/LoginForm/RegisterForm';
+import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
 const Register = () => (
   <section className="login">
