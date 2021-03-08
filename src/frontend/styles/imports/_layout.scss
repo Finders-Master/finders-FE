@@ -86,3 +86,43 @@
     // background-color: $secondary-color;
   }
 }
+
+.footer {
+  position: fixed;
+  background: lightgray;
+  z-index: 1000;
+  width: 100%;
+  height: 100px;
+  background-color: $secondary-color;
+  top: 90vh;
+}
+
+@media screen and (orientation: landscape) {
+  .footer {
+    top: 82vh;
+  }
+  .footer--list {
+    padding: 0px 0px 0px 0px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .footer {
+    top: 92vh;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .footer {
+    top: 90vh;
+  }
+}
+
+.footer--list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+  padding: 10px 0 0px 0;
+}
