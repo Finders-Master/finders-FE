@@ -25,8 +25,10 @@ const app = express();
 const corsOptions = {
   origin: '*',
   credentials: true,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 };
 app.use(cors(corsOptions));
+app.use(express.static(join(__dirname, 'static')));
 
 app.use(express.json());
 app.use(cookieParser(SESSION_SECRET));
@@ -92,6 +94,21 @@ const twitterOAuth = async (req, res, next) => {
   }) */
 };
 
+const handler = (req, res) => res.redirect('/');
+
+const routes = [
+  '/',
+  '/error-404',
+  '/angel',
+  '/alerta',
+  '/profile',
+  '/restart',
+  '/login',
+  '/registro',
+];
+
+routes.forEach((route) => app.get(route, handler));
+
 app.get(
   '/auth/google-oauth',
   passport.authenticate('google-oauth', {
@@ -112,29 +129,6 @@ app.get(
   passport.authenticate('twitter', { session: false }),
   twitterOAuth,
 );
-
-// Serve Frontend
-app.get('/', (req, res) => {
-  res.send(`<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css https://thefinders.herokuapp.com/user/login">
-    <meta http-equiv="Content-Security-Policy" content="font-src 'self' data:; img-src 'self' data:; default-src 'self' https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fCRc4EsA.woff2 https://fonts.googleapis.com/">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <title>Finders</title>
-    <link rel="stylesheet" href="/assets/styles.css">
-    <script defer="defer" src="/assets/app.js" type="text/javascript"></script>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
-</html>`);
-});
-
-// app.use(express.static(__dirname, '..', '..', 'public', 'index.html'));
 
 app.listen(port, (err) => {
   if (err) {
