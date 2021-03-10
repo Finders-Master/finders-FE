@@ -13,8 +13,11 @@ import cookieParser from 'cookie-parser';
 import axios from 'axios';
 import cors from 'cors';
 import boom from '@hapi/boom';
+import * as frontendRoutes from '../routes';
 
 dotenv.config();
+
+console.log(frontendRoutes);
 
 const { PORT, ENV, SESSION_SECRET } = process.env;
 const port = PORT || 8080;
@@ -96,16 +99,8 @@ const twitterOAuth = async (req, res, next) => {
 
 const handler = (req, res) => res.redirect('/');
 
-const routes = [
-  '/',
-  '/error-404',
-  '/angel',
-  '/alerta',
-  '/profile',
-  '/restart',
-  '/login',
-  '/registro',
-];
+const routes = Object.values(frontendRoutes);
+console.log(routes);
 
 routes.forEach((route) => app.get(route, handler));
 

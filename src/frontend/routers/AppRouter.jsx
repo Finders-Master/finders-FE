@@ -5,6 +5,16 @@ import {
   Redirect,
   BrowserRouter as Router,
 } from 'react-router-dom';
+import {
+  alert,
+  angel,
+  error,
+  home,
+  login,
+  profile,
+  register,
+  restore,
+} from '../../routes';
 
 import LoadingFallback from '../components/common/Loading';
 
@@ -29,15 +39,15 @@ const DashBoard = () => (
         <Layout>
           <div className="router-container">
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/error-404" component={NotFound} />
-              <Route exact path="/angel" component={AngelInfo} />
-              <Route exact path="/alerta" component={Notifications} />
-              <Route exact path="/profile" component={ProfileAndChangeInfo} />
-              <Route exact path="/restart" component={RestartPassword} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/registro" component={Register} />
-              <Redirect to="/error-404" />
+              <Route exact path={home} component={Home} />
+              <Route exact path={error} component={NotFound} />
+              <Route exact path={angel} component={AngelInfo} />
+              <Route exact path={alert} component={Notifications} />
+              <Route exact path={profile} component={ProfileAndChangeInfo} />
+              <Route exact path={restore} component={RestartPassword} />
+              <Route exact path={login} component={Login} />
+              <Route exact path={register} component={Register} />
+              <Redirect to={error} />
             </Switch>
           </div>
         </Layout>

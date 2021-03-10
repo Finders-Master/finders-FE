@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { alert, profile, scanQr } from '../../../routes';
 
 const Footer = () => (
   <footer className="footer">
@@ -13,7 +14,7 @@ const Footer = () => (
         </Link>
       </li>
       <li>
-        <Link to="/scan">
+        <Link to={scanQr}>
           <img
             src="https://firebasestorage.googleapis.com/v0/b/web-projects-50e7e.appspot.com/o/finders%2FSearch%20icon.png?alt=media&token=1a88c2f3-e8c2-49a8-b09c-bc097ae6c284"
             alt="Escanear código QR"
@@ -21,7 +22,7 @@ const Footer = () => (
         </Link>
       </li>
       <li>
-        <Link to="/notificaciones">
+        <Link to={alert}>
           <img
             src="https://firebasestorage.googleapis.com/v0/b/web-projects-50e7e.appspot.com/o/finders%2FNotification%20icon.png?alt=media&token=44ded482-d518-4611-b4a3-1d296ad8d84a"
             alt="Notificaciones"
@@ -29,7 +30,7 @@ const Footer = () => (
         </Link>
       </li>
       <li>
-        <Link to="perfil">
+        <Link to={profile}>
           <img
             src="https://firebasestorage.googleapis.com/v0/b/web-projects-50e7e.appspot.com/o/finders%2FAccount%20icon.png?alt=media&token=ce4cf284-e57d-4ef5-ba8e-d0070b5d4c1b"
             alt="Perfil"
