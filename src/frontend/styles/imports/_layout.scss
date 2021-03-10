@@ -14,9 +14,6 @@
     box-shadow: $shadow;
     z-index: 2;
     background: white;
-    @media screen and (max-width: $tablet) {
-      margin-top: 60px;
-    }
     &__scan {
       @media screen and (max-width: $tablet) {
         width: 100%;
