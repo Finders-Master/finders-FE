@@ -6,7 +6,7 @@ function Camera() {
       <canvas
         width="300px"
         height="300px"
-        style={{ backgroundColor: 'black' }}
+        className="scan-page__container--camera"
       />
       <button
         className="button loginform__submit button-change-info"

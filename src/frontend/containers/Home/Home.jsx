@@ -10,7 +10,7 @@ import IconHearth from '../../assets/static/hearth.png';
 
 const Home = () => (
   <>
-    <main style={{ maxWidth: '100vw' }}>
+    <main className="home-page">
       <Banner />
       <section className="Home">
         <article className="Home__description">
@@ -95,7 +95,7 @@ const Home = () => (
         </article>
       </section>
 
-      <h3 style={{ color: 'lightgray' }}>FINDME® 2021 ALL RIGHTS RESERVED</h3>
+      <h3 className="Home__copyright">FINDME® 2021 ALL RIGHTS RESERVED</h3>
     </main>
   </>
 );

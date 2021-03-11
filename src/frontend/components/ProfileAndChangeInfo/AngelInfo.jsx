@@ -8,7 +8,7 @@ function AngelInfo() {
         src="https://img.favpng.com/21/21/3/stock-photography-thought-man-looking-up-png-favpng-e1M7u3YcarHcG7M7fgjeWYLdD.jpg"
         alt="Person"
       />
-      <h2 style={{ color: 'white' }}>Mario Gacía Lopez Perez</h2>
+      <h2 className="angel-info__person-name">Mario Gacía Lopez Perez</h2>
     </div>
   );
 }

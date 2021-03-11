@@ -11,12 +11,7 @@ function Map() {
     <>
       <div className="location__container">
         <h3 className="location__container--title">Fue escaneado en:</h3>
-        <canvas
-          className="map"
-          width="300px"
-          height="300px"
-          style={{ backgroundColor: 'black' }}
-        />
+        <canvas className="map" width="300px" height="300px" />
       </div>
       <hr className="location__container--line" />
     </>

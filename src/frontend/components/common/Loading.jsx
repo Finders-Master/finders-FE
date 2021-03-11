@@ -3,7 +3,10 @@ import React from 'react';
 function Loading() {
   return (
     <>
-      <h1 style={{ textAlign: 'center', marginTop: '25vh' }}>Loading...</h1>
+      <div className="loading-component">
+        <h1 className="">Loading...</h1>
+        <progress max="100" />
+      </div>
     </>
   );
 }
