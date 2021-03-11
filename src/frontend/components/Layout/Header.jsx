@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AiOutlineMenu, AiOutlineUser } from 'react-icons/ai';
-import LogoFindMe from '../../assets/svg/LogoFindMe';
 import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
 import { register } from '../../../routes';
@@ -21,7 +20,12 @@ const Header = () => {
           </button>
           <figure>
             <Link to="/">
-              <LogoFindMe />
+              <img
+                className="logo"
+                loading="lazy"
+                src="https://firebasestorage.googleapis.com/v0/b/web-projects-50e7e.appspot.com/o/finders%2Flogo-finders.png?alt=media&token=0f47758d-17a4-4999-bbbd-b8a309750467"
+                alt="Logo de Finders"
+              />
             </Link>
           </figure>
         </div>
