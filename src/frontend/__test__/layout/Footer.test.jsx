@@ -13,20 +13,13 @@ describe('<Footer />', () => {
   it('Should render Footer component', () => {
     expect(footer.length).toEqual(1);
   });
-  test('should render a h3', () => {
-    expect(footer.find('h3').text()).toEqual(
-      'FINDME® 2021 ALL RIGHTS RESERVED',
-    );
+  test('<ul /> Should have 4 list elements', () => {
+    expect(footer.find('ul').children('li').length).toEqual(4);
+  });
+  test('<li /> elements should have a link', () => {
+    expect(footer.find('li').find('a').length).toEqual(4);
+  });
+  test('<li /> elements should have an image', () => {
+    expect(footer.find('li').find('a').length).toEqual(4);
   });
 });
-
-// it('renders without crashing', () => {
-//   const div = document.createElement('div');
-//   ReactDOM.render(
-//     <BrowserRouter>
-//       <Footer />
-//     </BrowserRouter>,
-//     div,
-//   );
-//   ReactDOM.unmountComponentAtNode(div);
-// });
