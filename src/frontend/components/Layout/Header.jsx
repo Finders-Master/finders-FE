@@ -11,7 +11,6 @@ const Header = () => {
   const handleModal = () => {
     setmodal(!modal);
   };
-  const location = useLocation();
 
   return (
     <>
@@ -26,16 +25,6 @@ const Header = () => {
             </Link>
           </figure>
         </div>
-        {location.pathname === '/' && (
-          <div className="layout__header__scan">
-            <Button
-              style="button alert shadow"
-              fontSize="1.1"
-              text="ESCANEAR CODIGO QR"
-              link="/"
-            />
-          </div>
-        )}
         <nav className="layout__header__register">
           <button
             type="button"
