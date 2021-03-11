@@ -78,7 +78,8 @@
       "<rootDir>/src/frontend/__test__/setupTest.js"
     ],
     "moduleNameMapper": {
-      "\\.(scss|css)$": "<rootDir>/src/frontend/__mocks__/styleMock.js"
+      "\\.(scss|css)$": "<rootDir>/src/frontend/__mocks__/styleMock.js",
+      "\\.(png|jpg|svg|png)$": "<rootDir>/src/frontend/__mocks__/imgMock.js"
     }
   }
 }
