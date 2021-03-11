@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import GoogleLogo from '../../assets/svg/GoogleLogo';
 import TwitterLogo from '../../assets/svg/TwitterLogo';
+import { login, register } from '../../../routes';
+
 //  Utils
 import {
   validateInput,
@@ -144,7 +146,7 @@ function RegisterForm() {
       <div className="loginform__buttons">
         <NavLink
           className="loginform__buttons__inactive"
-          to="/login"
+          to={login}
           exact
           activeClassName="loginform__buttons__active"
         >
@@ -153,7 +155,7 @@ function RegisterForm() {
         <div className="separator__vertical" />
         <NavLink
           className="loginform__buttons__inactive"
-          to="/registro"
+          to={register}
           exact
           activeClassName="loginform__buttons__active"
         >

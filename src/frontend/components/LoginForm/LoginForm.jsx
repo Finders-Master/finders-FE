@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import GoogleLogo from '../../assets/svg/GoogleLogo';
 import TwitterLogo from '../../assets/svg/TwitterLogo';
-// import { useForm } from '../../Hooks/useForm';
 import { login } from '../../utils/index';
+import { register, login as loginRoute } from '../../../routes';
 
 const LoginForm = () => {
   const EmailInput = useRef(null);
@@ -28,7 +28,7 @@ const LoginForm = () => {
       <div className="loginform__buttons">
         <NavLink
           className="loginform__buttons__inactive"
-          to="/login"
+          to={loginRoute}
           exact
           activeClassName="loginform__buttons__active"
         >
@@ -37,7 +37,7 @@ const LoginForm = () => {
         <div className="separator__vertical" />
         <NavLink
           className="loginform__buttons__inactive"
-          to="/registro"
+          to={register}
           exact
           activeClassName="loginform__buttons__active"
         >
