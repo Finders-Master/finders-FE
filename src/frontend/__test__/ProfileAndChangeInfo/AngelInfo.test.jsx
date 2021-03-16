@@ -3,7 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import AngelInfo from '../../components/ProfileAndChangeInfo/AngelInfo';
 
-describe('', () => {
+describe('<AngelInfo />', () => {
   const AngelInfoComponent = mount(<AngelInfo />);
   it('Should render', () => {
     expect(AngelInfoComponent.length).toEqual(1);
