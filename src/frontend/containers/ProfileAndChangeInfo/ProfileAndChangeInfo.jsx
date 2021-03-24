@@ -17,6 +17,9 @@ function ChangeInfo() {
         <GuardianProfile />
         <ChangeGuardianForm />
         <h2>Angeles</h2>
+
+        <ShowAngel />
+
         {!createNewAngel && (
           <button
             onClick={showCreateNewAngelForm}
@@ -29,13 +32,7 @@ function ChangeInfo() {
         {createNewAngel && (
           <>
             <AddAngel />
-            <button
-              onClick={showCreateNewAngelForm}
-              className="loginform__submit button-change-info"
-              type="button"
-            >
-              Crear nuevo ángel
-            </button>
+
             <button
               onClick={showCreateNewAngelForm}
               className="loginform__submit button-change-info cancel-button"
@@ -45,7 +42,6 @@ function ChangeInfo() {
             </button>
           </>
         )}
-        <ShowAngel />
       </main>
     </>
   );
