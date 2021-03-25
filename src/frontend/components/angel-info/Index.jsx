@@ -1,7 +1,26 @@
-import React from 'react';
-import Info from './Info';
+import React, { useState, useEffect } from "react";
+import Info from "./Info";
 
 export default function AngelInfo() {
+  const [angelGuardian, setAngelGuardian] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://thefinders.herokuapp.com/patient/334`)
+      .then((response) => response.json())
+      .then((data) =>
+        setAngelGuardian({
+          name: data.user.name,
+          telephone: data.user.contact_emergencies,
+          picture: data.user.pictures,
+          blood_type: data.user.health_id[0].blood_type,
+          allergies: data.user.health_id[0].allergies,
+          medication: data.user.health_id[0].medication,
+          institution: data.user.institution,
+          address: data.user.address,
+        })
+      )
+      .catch((err) => console.error(err));
+  });
   return (
     <>
       <main className="angel-info-main">
@@ -9,25 +28,25 @@ export default function AngelInfo() {
           <div className="angel-info-main__basic-data--person">
             <img
               className="angel-info__photo"
-              src="https://ahtprinting.com/wp-content/uploads/2019/11/black-person-png-business-professional-man-png.jpg"
+              src={angelGuardian.pictures}
               alt="Persona"
               loading="lazy"
             />
-            <h1 className="angel-info__name">Francisco García Lopez Perez</h1>
+            <h1 className="angel-info__name">{angelGuardian.name}</h1>
           </div>
         </section>
         <section>
           <div className="angel__info">
-            <Info label="Contacto de emergencia" data="+55 5555-5555-55" />
-            <Info label="Tipo de sangre" data="O +" />
-            <Info label="Enfermedades" data="Alzheimer" />
-            <Info label="Alergias" data="Ninguna alergia" />
-            <Info label="Medicamentos" data="Paracetamol" />
-            <Info label="Sistema de salúd" data="IMSS" />
             <Info
-              label="Dirección"
-              data="Cristóbal Colón #45, Guanajuato Mexico"
+              label="Contacto de emergencia"
+              data={angelGuardian.telephone}
             />
+            <Info label="Tipo de sangre" data={angelGuardian.blood_type} />
+            <Info label="Enfermedades" data={angelGuardian.allergies} />
+            <Info label="Alergias" data={angelGuardian.allergies} />
+            <Info label="Medicamentos" data={angelGuardian.medication} />
+            <Info label="Sistema de salúd" data={angelGuardian.institution} />
+            <Info label="Dirección" data={angelGuardian.address} />
           </div>
           <div className="person-id">
             <img

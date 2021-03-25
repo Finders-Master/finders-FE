@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function ChangeAngelInfo() {
   const [inputsValues, setInputsValues] = useState({
-    bloodType: 'O +',
-    diseases: 'Alzhaimer',
-    alergies: 'None',
-    medications: 'Paracetamol',
-    healtcareSystem: 'IMSS',
-    adress: 'Alta vista 16 interior 8',
+    bloodType: "B +",
+    diseases: "Alzhaimer",
+    alergies: "None",
+    medications: "Paracetamol",
+    healtcareSystem: "IMSS",
+    adress: "Alta vista 16 interior 8",
   });
 
   function handleInputs(event) {
@@ -32,7 +32,7 @@ function ChangeAngelInfo() {
             <option value={inputsValues.bloodType} defaultValue>
               {inputsValues.bloodType.length > 0
                 ? inputsValues.bloodType
-                : 'Selecciona el tipo de sangre'}
+                : "Selecciona el tipo de sangre"}
             </option>
 
             <option value="O +">O +</option>
