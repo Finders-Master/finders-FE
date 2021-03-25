@@ -1,0 +1,15 @@
+.scan-page__container {
+  width: 90vw;
+  display: grid;
+  justify-content: center;
+  margin-top: 17vh;
+}
+.scan-page__container--title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5vh;
+}
+
+.scan-page__container--camera {
+  background-color: black;
+}

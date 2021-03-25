@@ -1,0 +1,15 @@
+.loading-component {
+  text-align: center;
+  margin: 40vh auto;
+}
+
+progress[value]::-webkit-progress-value {
+  width: 250px;
+  height: 20px;
+  border-radius: 2px;
+
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+  -webkit-animation: animate-stripes 5s linear infinite;
+  animation: animate-stripes 5s linear infinite;
+}

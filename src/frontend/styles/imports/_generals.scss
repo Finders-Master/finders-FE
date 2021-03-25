@@ -1,0 +1,39 @@
+//styles to general use
+
+.separator {
+  &__vertical {
+    width: 10px;
+    border-right: 2px solid $white;
+    height: 40px;
+    margin-right: 10px;
+  }
+}
+
+.button {
+  padding: 10px 20px 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  outline: none;
+  transition: 0.1s;
+  cursor: pointer;
+  @media screen and (max-width: $desktop) {
+    @include flex(center, center, column);
+  }
+}
+.alert {
+  color: $white;
+  background-color: $acent-color;
+  &:active {
+    background-color: $primary-color;
+    transform: scale(0.9);
+  }
+}
+.primary {
+  color: $white;
+  background-color: $primary-color;
+}
+
+.shadow {
+  box-shadow: $shadow;
+}

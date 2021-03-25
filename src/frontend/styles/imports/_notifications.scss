@@ -1,0 +1,151 @@
+.alert-page {
+  width: 100vw;
+  justify-items: center;
+}
+
+.warning-img {
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.alert__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8vh;
+}
+
+.alert__container--title {
+  color: $alert-color;
+}
+
+.alert__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 3vh;
+}
+
+.alert__info--name {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.alert__info--warning {
+  // width: 90vw;
+  margin: 0 auto;
+  border-radius: 10px;
+  display: flex;
+  align-content: center;
+  justify-items: center;
+  background-color: $alert-color;
+  margin-top: 50px;
+}
+
+.alert__info--text {
+  text-align: center;
+  font-size: 2rem;
+  padding: 4vh 0;
+  color: $white;
+  width: 90vw;
+}
+
+.location__container {
+  margin: 8vh auto;
+  width: 90vw;
+  display: grid;
+  justify-items: center;
+}
+
+.map {
+  width: 100%;
+  background-color: black;
+}
+
+.location__container--title {
+  margin-bottom: 5vh;
+}
+
+.location__container--line {
+  line-height: 1px;
+  background-color: black;
+  margin-top: 10px;
+  padding-bottom: 2px;
+  width: 90vw;
+  margin: 0 auto;
+  margin-bottom: 8vh;
+}
+
+.message__container {
+  width: 90vw;
+  margin: 0 auto 20px auto;
+}
+
+.message__container--title {
+  font-size: 1.5rem;
+}
+
+.message__content {
+  width: 100%;
+  background-color: #e5e5e5;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+}
+
+.message__content--message {
+  text-align: left;
+  font-size: 1.6rem;
+  padding-left: 10px;
+}
+
+//  Tablet
+
+@media screen and (min-width: $tablet) {
+  .warning-img {
+    width: 130px;
+    height: 130px;
+  }
+  .angel-info__photo {
+    width: 250px;
+    height: 250px;
+  }
+  .alert__container--title {
+    font-size: 3rem;
+  }
+  .alert__info--name {
+    font-size: 2rem;
+  }
+  .alert__info--text {
+    font-size: 2.5rem;
+  }
+  .location__container--title {
+    font-size: 2.5rem;
+  }
+  .map {
+    height: 450px;
+  }
+  .message__container--title {
+    font-size: 3rem;
+  }
+  .message__content--message {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .alert__container {
+    margin-bottom: 10vh;
+  }
+  .angel-info__photo {
+    width: 300px;
+    height: 300px;
+  }
+  .map {
+    height: 600px;
+  }
+}

@@ -1,0 +1,49 @@
+.main {
+  position: relative;
+  height: 60vh;
+  width: 100%;
+  background: $primary-color;
+  background-size: cover;
+  color: $white;
+  @include flex;
+  overflow: hidden;
+  @media screen and (max-width: $mobile) {
+    height: 80vh;
+  }
+  &__container {
+    max-width: 1050px;
+    padding: 40px;
+    @include flex(center, space-between, row);
+    &__space {
+      width: 50%;
+      @media screen and (max-width: $tablet) {
+        display: none;
+      }
+    }
+    &__info {
+      width: 50%;
+      @media screen and (max-width: $tablet) {
+        width: 100%;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+    h1 {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 2em;
+      @media screen and (max-width: $mobile) {
+        font-size: 1.3em;
+      }
+    }
+  }
+  &__form {
+    position: absolute;
+    width: 120%;
+    height: 200px;
+    border-radius: 50%;
+    background: white;
+    bottom: -100px;
+  }
+}

@@ -1,0 +1,130 @@
+//  Angel info page
+
+.info-page {
+  width: 90vw;
+  margin: 0 auto;
+  height: auto;
+  margin-top: 15vh;
+  text-align: left;
+}
+
+.angel-info-main {
+  margin-top: 100px;
+  display: grid;
+}
+
+.angel-info-main__basic-data--container {
+  display: grid;
+}
+
+.angel-info-main__basic-data--person {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.angel-info__photo {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 100%;
+  margin-bottom: 50px;
+}
+
+.angel-info__person-name {
+  color: white;
+}
+.angel__info {
+  width: 100%;
+  height: auto;
+  display: grid;
+  padding: 10vh 0;
+}
+
+.info__container {
+  padding: 8% 0;
+}
+
+.info__container--label {
+  color: $alert-color;
+  padding-bottom: 10%;
+}
+
+.info__container--data {
+  font-size: 2rem;
+}
+
+.info__container--line {
+  line-height: 10px;
+  background-color: black;
+  margin-top: 3%;
+}
+
+.person-id__img {
+  width: 100%;
+  margin-top: 50px;
+  height: auto;
+  object-fit: contain;
+  padding-bottom: 100px;
+}
+
+//  Tablet
+
+@media screen and (min-width: $tablet) {
+  .angel-info__photo {
+    width: 250px;
+    height: 250px;
+  }
+  .angel-info__name {
+    font-size: 3rem;
+  }
+  .info__container--label {
+    font-size: 2rem;
+    padding-bottom: 8%;
+  }
+  .info__container--data {
+    font-size: 2rem;
+  }
+}
+
+//  Desktop
+
+@media screen and (min-width: $desktop) {
+  .angel__info {
+    grid-template-columns: 1fr 1fr;
+  }
+  .info__container {
+    padding: 10px;
+    width: 95%;
+    margin: 0 auto;
+  }
+  .angel__info {
+    padding: 15vh 0;
+  }
+  .person-id {
+    display: grid;
+    justify-items: center;
+    padding-bottom: 20vh;
+  }
+  .person-id__img {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+//  Mobile orientation landscape
+
+@media screen and (orientation: landscape) {
+  .angel-info__photo {
+    margin-bottom: 0;
+  }
+  .angel-info-main__basic-data--person {
+    margin-bottom: -65px;
+  }
+  .info__container {
+    padding: 6%;
+  }
+  .info__container--label {
+    padding-bottom: 8%;
+  }
+}
