@@ -29,10 +29,11 @@ const LoginForm = () => {
         if (data.access_token === undefined) {
           setErrorLogin(true);
         }
-
+        window.localStorage.setItem('jwt', data.access_token);
         const tokenDecoded = decodeJWT(data.access_token);
         window.localStorage.setItem('user', tokenDecoded.user);
         window.localStorage.setItem('img', tokenDecoded.image);
+        window.localStorage.setItem('id', tokenDecoded.sub);
         setErrorLogin('redirect');
       });
   }

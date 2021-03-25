@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { login } from '../../../routes';
 import FormChangeGuardianInfo from './FormChangeGuardianInfo';
 import ShowGuardianInfo from './ShowGuardianInfo';
 
-function ChangeGuardianForm() {
+function Form() {
   const [changeInfo, setChangeInfo] = useState(false);
 
   function toggleChangeInfo(event) {
@@ -13,7 +15,6 @@ function ChangeGuardianForm() {
     event.preventDefault();
     setChangeInfo(false);
   }
-
   return (
     <>
       {/* Show form or show info */}
@@ -49,6 +50,25 @@ function ChangeGuardianForm() {
           Cancelar actualizar información
         </button>
       ) : null}
+    </>
+  );
+}
+
+function ChangeGuardianForm() {
+  const token = window.localStorage.getItem('jwt');
+
+  let isLogged;
+
+  if (token !== undefined && token !== null && token.length > 10) {
+    isLogged = true;
+  } else {
+    isLogged = false;
+  }
+
+  return (
+    <>
+      {isLogged === true && <Form />}
+      {isLogged === false && <Redirect to={login} />}
     </>
   );
 }
