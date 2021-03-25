@@ -9,7 +9,7 @@ module.exports = {
     modules: ['react', 'react-dom'],
   },
   output: {
-    path: join(__dirname, 'dist', 'js'),
+    path: join(__dirname, 'src', 'server', 'public', 'dll'),
     filename: '[name].dll.js',
     library: '[name]',
   },
@@ -34,7 +34,14 @@ module.exports = {
 
   plugins: [
     new DllPlugin({
-      path: join(__dirname, 'dist', 'js', '[name]-manifest.json'),
+      path: join(
+        __dirname,
+        'src',
+        'server',
+        'public',
+        'dll',
+        '[name]-manifest.json'
+      ),
       name: '[name]',
       context: __dirname,
     }),
