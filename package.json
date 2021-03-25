@@ -8,7 +8,8 @@
     "build": "webpack --progress --config ./webpack.config.dll.js && webpack --progress --config ./webpack.config.production.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "prod": "node src/server/index.js"
   },
   "repository": {
     "type": "git",

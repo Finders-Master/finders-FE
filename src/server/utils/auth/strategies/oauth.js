@@ -1,7 +1,7 @@
-import passport from 'passport';
-import axios from 'axios';
-import { OAuth2Strategy } from 'passport-oauth';
-import boom from '@hapi/boom';
+const passport = require('passport');
+const axios = require('axios');
+const { OAuth2Strategy } = require('passport-oauth');
+const boom = require('@hapi/boom');
 
 const {
   GOOGLE_CLIENT_ID,
@@ -38,7 +38,7 @@ const oAuth2Strategy = new OAuth2Strategy(
 
     if (!data || status !== 201) return cb(boom.unauthorized(), false);
     return cb(null, data);
-  },
+  }
 );
 
 oAuth2Strategy.userProfile = function (accesToken, done) {

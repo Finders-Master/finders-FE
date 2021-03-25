@@ -1,9 +1,9 @@
-import passport from 'passport';
-import axios from 'axios';
-import { get } from 'lodash';
-import boom from '@hapi/boom';
+const passport = require('passport');
+const axios = require('axios');
+const { get } = require('lodash');
+const boom = require('@hapi/boom');
 
-import { Strategy as TwitterStrategy } from 'passport-twitter';
+const { Strategy: TwitterStrategy } = require('passport-twitter');
 
 const {
   TWITTER_CONSUMER_KEY,
@@ -29,7 +29,7 @@ passport.use(
           email: get(
             profile,
             'emails.0.value',
-            `${profile.username}@twitter.com`,
+            `${profile.username}@twitter.com`
           ),
           pictures: 'http://dummyimage.com/248x122.jpg/5fa2dd/ffffff',
           type_user_id: 1,
@@ -41,6 +41,6 @@ passport.use(
       if (!data || status !== 201) return cb(boom.unauthorized(), false);
 
       return cb(null, data);
-    },
-  ),
+    }
+  )
 );

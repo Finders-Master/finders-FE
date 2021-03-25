@@ -1,18 +1,18 @@
 // Social media login source: https://github.com/CarGDev/loginMedia/
 /* eslint-disable global-require */
-import express from 'express';
-import dotenv from 'dotenv';
-import webpack from 'webpack';
-import { join } from 'path';
-import 'regenerator-runtime';
+const express = require('express');
+const dotenv = require('dotenv');
+const webpack = require('webpack');
+const { join } = require('path');
+require('regenerator-runtime');
 //  Passport
-import helmet from 'helmet';
-import passport from 'passport';
-import session from 'express-session';
-import cookieParser from 'cookie-parser';
-import cors from 'cors';
-import boom from '@hapi/boom';
-import * as frontendRoutes from '../routes';
+const helmet = require('helmet');
+const passport = require('passport');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const boom = require('@hapi/boom');
+const frontendRoutes = require('../routes');
 
 dotenv.config();
 
@@ -59,15 +59,14 @@ if (ENV === 'development') {
   app.use(webpackDevMiddleware(compiler, webpackServerConfig));
   app.use(webpackHotMiddleware(compiler));
 } else {
+  app.use(express.static(join(__dirname, 'public')));
+  app.disable('x-powered-by');
   app.use((req, res, next) => {
     if (!req.secure && req.get('X-Forwarded-Proto') !== 'https') {
       res.redirect(307, 'https://' + req.get('Host') + req.url);
     } else next();
   });
 }
-
-app.use(express.static(join(__dirname, 'public')));
-
 app.use(helmet());
 
 //  Strategies
