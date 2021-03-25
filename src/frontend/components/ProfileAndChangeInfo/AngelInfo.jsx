@@ -5,7 +5,22 @@ function AngelInfo() {
   const [isRequested, setIsRequested] = useState(false);
 
   useEffect(() => {
-    fetch(`https://thefinders.herokuapp.com/patient/334`)
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append(
+      'Authorization',
+      `Bearer ${window.localStorage.getItem('jwt')}`
+    );
+    console.log(window.localStorage.getItem('id'));
+
+    fetch(
+      `https://thefinders.herokuapp.com/user/${window.localStorage.getItem(
+        'id'
+      )}`,
+      {
+        headers,
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         setAngel({
@@ -18,6 +33,7 @@ function AngelInfo() {
         setIsRequested(true);
       });
   }, [isRequested]);
+
   return (
     <div className="angel-info login__container">
       <img

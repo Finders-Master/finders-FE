@@ -17,14 +17,14 @@ function ShowAngel() {
         {changeInfoOfAngel && <ChangeAngelInfo />}
 
         {/* If user are changing angel info, hidde button. Redirect coming soon */}
-        {!changeInfoOfAngel && (
+        {/* {!changeInfoOfAngel && (
           <button
             className="loginform__submit button-change-info"
             type="button"
           >
             Encontrar
           </button>
-        )}
+        )} */}
 
         <button
           onClick={toggleChangeInfoOfAngel}
