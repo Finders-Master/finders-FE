@@ -47,6 +47,7 @@ export default function AngelInfo() {
             <Info label="Medicamentos" data={angelGuardian.medication} />
             <Info label="Sistema de salúd" data={angelGuardian.institution} />
             <Info label="Dirección" data={angelGuardian.address} />
+            <Info label="QRCode" data={window.localStorage.getItem("QRCode")} />
           </div>
           <div className="person-id">
             <img
