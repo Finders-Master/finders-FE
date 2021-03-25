@@ -1,19 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 function AngelInfo() {
   const [angel, setAngel] = useState([]);
+  const [isRequested, setIsRequested] = useState(false);
 
   useEffect(() => {
     fetch(`https://thefinders.herokuapp.com/patient/334`)
       .then((response) => response.json())
-      .then((data) =>
+      .then((data) => {
         setAngel({
           nameAngel: data.user.userguard_id.name,
           picture: data.user.userguard_id.pictures,
-        })
-      )
-      .catch((err) => console.error(err));
-  });
+        });
+        setIsRequested(true);
+      })
+      .catch((err) => {
+        setIsRequested(true);
+      });
+  }, [isRequested]);
   return (
     <div className="angel-info login__container">
       <img
