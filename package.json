@@ -9,7 +9,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "prod": "node src/server/index.js"
+    "prod": "npm run build && node src/server/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Finders-Master/finders-FE#readme",
   "devDependencies": {
-    "@babel/core": "7.12.17",
+    "@babel/core": "^7.12.17",
     "@babel/preset-env": "7.12.17",
     "@babel/preset-react": "7.12.13",
     "babel-loader": "8.2.2",
@@ -53,7 +53,7 @@
     "workbox-webpack-plugin": "6.1.0"
   },
   "dependencies": {
-    "@babel/register": "7.13.8",
+    "@babel/register": "^7.13.8",
     "@hapi/boom": "9.1.1",
     "axios": "0.21.1",
     "cookie-parser": "1.4.5",
