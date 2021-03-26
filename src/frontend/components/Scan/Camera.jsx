@@ -1,17 +1,16 @@
-import React, { useState, useRef } from "react";
-import QrReader from "react-qr-reader";
-import { Redirect } from "react-router-dom";
-import { angel } from "../../../routes";
+import React, { useState, useRef } from 'react';
+import QrReader from 'react-qr-reader';
+import { Redirect } from 'react-router-dom';
+import { angel } from '../../../routes';
 
 function Camera() {
   const [reactQR, setReactQR] = useState(false);
   const refReactQR = useRef(null);
 
   const handleScanFile = (result) => {
-    // console.log(result);
     if (result) {
       setReactQR(result);
-      window.localStorage.setItem("QRCode", result);
+      window.sessionStorage.setItem('qr-scanned', result);
     }
   };
   const handleError = (err) => {
@@ -26,7 +25,7 @@ function Camera() {
             delay={300}
             onError={handleError}
             onScan={handleScanFile}
-            style={{ width: "100%" }}
+            style={{ width: '100%' }}
             ref={refReactQR}
           />
         </div>

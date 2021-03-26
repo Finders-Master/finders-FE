@@ -19,25 +19,13 @@ function AddAngel() {
 
   const [angelCreationResponse, setAngelCreationRespone] = useState(undefined);
 
+  const [qrUrl, setQrUrl] = useState('');
+
   function handleClick(e) {
     e.preventDefault();
 
-    const segs = [
-      {
-        data: Object.values(inputsValues).join(),
-        mode: 'byte',
-      },
-    ];
-
-    let qrImg;
-
-    QRCode.toDataURL(segs, (err, url) => {
-      if (err) console.log(err);
-      qrImg = url;
-    });
-
     const request = {
-      qr: qrImg,
+      qr: '',
       ...inputsValues,
     };
 
@@ -46,7 +34,37 @@ function AddAngel() {
 
     AddPatient(request)
       .then((res) => res.json())
-      .then((data) => setAngelCreationRespone(data));
+      .then((data) => {
+        const infoToQr = {
+          name: data.patient.name,
+          address: data.patient.address,
+          id_document: data.patient.id_document,
+          institution: data.patient.institution,
+          allergies: data.patient.health_id[0].allergies,
+          diseases: data.patient.health_id[0].diseases,
+          medication: data.patient.health_id[0].medication,
+          blood_type: data.patient.health_id[0].blood_type,
+          pictures: data.patient.pictures,
+        };
+
+        const segs = [
+          {
+            data: Object.values(infoToQr).toLocaleString(),
+            mode: 'byte',
+          },
+        ];
+
+        let qrImg;
+
+        QRCode.toDataURL(segs, (err, url) => {
+          if (err) console.log(err);
+          qrImg = url;
+        });
+
+        setQrUrl(qrImg);
+
+        setAngelCreationRespone(data);
+      });
   }
 
   function handleInputs(event) {
@@ -108,7 +126,7 @@ function AddAngel() {
                   className="component-input__input component-input__input--border"
                   required
                   type="text"
-                  placeholder="Cada discapacidad separada por coma"
+                  placeholder="Cada discapacidad separada con un punto"
                   name="diseases"
                   id="diseases"
                   onChange={handleInputs}
@@ -122,7 +140,7 @@ function AddAngel() {
                   className="component-input__input component-input__input--border"
                   required
                   type="text"
-                  placeholder="Cada alergia separada por coma"
+                  placeholder="Cada alergia separada con un punto"
                   name="allergies"
                   id="allergies"
                   onChange={handleInputs}
@@ -136,7 +154,7 @@ function AddAngel() {
                   className="component-input__input component-input__input--border"
                   required
                   type="text"
-                  placeholder="Cada medicamento separado por coma"
+                  placeholder="Cada medicamento separado con un punto"
                   name="medication"
                   id="medication"
                   onChange={handleInputs}
@@ -225,6 +243,8 @@ function AddAngel() {
             Paciente creado correctamente
           </h1>
         )}
+
+      {qrUrl.length > 0 && <img src={qrUrl} alt="Código QR" />}
     </>
   );
 }
