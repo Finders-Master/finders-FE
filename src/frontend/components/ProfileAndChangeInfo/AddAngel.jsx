@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import QRCode from 'qrcode';
 import AddPatient from '../../utils/addAngel';
 import LoadingSpinner from '../common/LoadingSpinner';
+import 'regenerator-runtime';
 
 function AddAngel() {
   const [inputsValues, setInputsValues] = useState({
@@ -20,10 +22,29 @@ function AddAngel() {
   function handleClick(e) {
     e.preventDefault();
 
+    const segs = [
+      {
+        data: Object.values(inputsValues).join(),
+        mode: 'byte',
+      },
+    ];
+
+    let qrImg;
+
+    QRCode.toDataURL(segs, (err, url) => {
+      if (err) console.log(err);
+      qrImg = url;
+    });
+
+    const request = {
+      qr: qrImg,
+      ...inputsValues,
+    };
+
     // Update component to show an await response component
     setAngelCreationRespone('await');
 
-    AddPatient(inputsValues)
+    AddPatient(request)
       .then((res) => res.json())
       .then((data) => setAngelCreationRespone(data));
   }
@@ -192,14 +213,14 @@ function AddAngel() {
 
       {/* Response */}
       {typeof angelCreationResponse === 'object' &&
-        angelCreationResponse.statusCode !== 201 && (
+        angelCreationResponse.patient === undefined && (
           <h1 className="request-response-error-fatal request-response">
             Ocurrió un error, intente más tarde
           </h1>
         )}
 
       {typeof angelCreationResponse === 'object' &&
-        angelCreationResponse.statusCode === 201 && (
+        Object.values(angelCreationResponse.patient).length > 0 && (
           <h1 className="request-response-succcess request-response">
             Paciente creado correctamente
           </h1>

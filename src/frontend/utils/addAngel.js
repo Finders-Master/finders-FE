@@ -10,6 +10,7 @@ export default function addAngel({
   diseases,
   contact_emergencies,
   id_document,
+  qr,
 }) {
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');
@@ -25,8 +26,9 @@ export default function addAngel({
     blood_type,
     medication,
     diseases,
-    userguard_id: 204,
+    userguard_id: parseInt(window.localStorage.getItem('id'), 10),
     id_document,
+    qr,
   });
 
   const request = window.fetch(
